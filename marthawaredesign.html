@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martha Ware Design | Full-Service Interior Design, Seattle</title>
+<meta name="description" content="Full-service interior design for discerning homeowners in the Seattle Metro Area. Specializing in kitchen & bathroom remodels and custom new builds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f9f7f4;
+    --warm-white: #fdfcfb;
+    --charcoal: #2c2b28;
+    --mid-gray: #7a7872;
+    --light-gray: #e8e5e0;
+    --accent: #8b7355;
+    --accent-light: #c4b49a;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(253,252,251,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    color: var(--charcoal);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--mid-gray);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--charcoal); }
+
+  .nav-cta {
+    background: var(--charcoal) !important;
+    color: var(--warm-white) !important;
+    padding: 0.5rem 1.25rem !important;
+    letter-spacing: 0.14em;
+  }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--charcoal);
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--warm-white);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    text-decoration: none;
+    color: var(--charcoal);
+    letter-spacing: 0.06em;
+  }
+
+  .mobile-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--charcoal);
+    font-family: var(--font-serif);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 70px;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 5rem 6rem 6rem;
+    background: var(--cream);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .hero-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 4vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-heading em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-body {
+    font-size: 1rem;
+    color: var(--mid-gray);
+    max-width: 400px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: var(--font-sans);
+    padding: 0.85rem 2rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-dark {
+    background: var(--charcoal);
+    color: var(--warm-white);
+  }
+
+  .btn-dark:hover {
+    background: #444;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--charcoal);
+    border: 1px solid var(--charcoal);
+  }
+
+  .btn-outline:hover {
+    background: var(--charcoal);
+    color: var(--warm-white);
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 6rem; }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-heading em { font-style: italic; }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--accent-light);
+    margin-bottom: 2rem;
+  }
+
+  /* PHILOSOPHY */
+  #philosophy {
+    background: var(--charcoal);
+    color: var(--warm-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+
+  .philosophy-text {
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .philosophy-text .section-heading { color: var(--warm-white); }
+  .philosophy-text .section-eyebrow { color: var(--accent-light); }
+
+  .philosophy-text p {
+    color: rgba(253,252,251,0.75);
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .philosophy-image {
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+  }
+
+  .philosophy-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85);
+  }
+
+  blockquote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--accent-light);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--accent);
+  }
+
+  blockquote cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-top: 0.75rem;
+  }
+
+  /* SERVICES */
+  #services { background: var(--cream); }
+
+  .services-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: start;
+  }
+
+  .service-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--light-gray);
+    border: 1.5px solid var(--light-gray);
+  }
+
+  .service-card {
+    background: var(--warm-white);
+    padding: 2.5rem;
+  }
+
+  .service-number {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--light-gray);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--mid-gray);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card a {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .service-card a:hover { color: var(--charcoal); }
+
+  /* PROCESS */
+  #process { background: var(--warm-white); }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .process-step {
+    border-top: 1px solid var(--light-gray);
+    padding-top: 1.5rem;
+  }
+
+  .step-num {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .process-step h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.75rem;
+  }
+
+  .process-step p {
+    font-size: 0.875rem;
+    color: var(--mid-gray);
+    line-height: 1.8;
+  }
+
+  /* INVESTMENT */
+  #investment {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .investment-text .section-heading { margin-bottom: 1rem; }
+
+  .investment-item {
+    border-top: 1px solid var(--light-gray);
+    padding: 1.5rem 0;
+  }
+
+  .investment-item:last-of-type { border-bottom: 1px solid var(--light-gray); }
+
+  .investment-item h4 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+
+  .investment-item p {
+    font-size: 0.875rem;
+    color: var(--mid-gray);
+    line-height: 1.8;
+  }
+
+  .investment-callout {
+    background: var(--charcoal);
+    color: var(--warm-white);
+    padding: 3rem;
+  }
+
+  .callout-number {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .callout-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(253,252,251,0.6);
+    margin-bottom: 2rem;
+    font-weight: 400;
+  }
+
+  .callout-detail {
+    font-size: 0.875rem;
+    color: rgba(253,252,251,0.7);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+  }
+
+  /* FAQ */
+  #faq { background: var(--warm-white); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 4rem;
+    margin-top: 2.5rem;
+  }
+
+  .faq-item {
+    border-top: 1px solid var(--light-gray);
+    padding: 1.5rem 0;
+  }
+
+  .faq-item h4 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.75rem;
+  }
+
+  .faq-item p {
+    font-size: 0.875rem;
+    color: var(--mid-gray);
+    line-height: 1.8;
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+
+  .about-image {
+    overflow: hidden;
+    min-height: 550px;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .about-text {
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+    color: var(--mid-gray);
+    line-height: 1.9;
+    margin-bottom: 1.25rem;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--charcoal);
+    color: var(--warm-white);
+    text-align: center;
+    padding: 7rem 6rem;
+  }
+
+  #contact .section-eyebrow { color: var(--accent-light); }
+  #contact .section-heading { color: var(--warm-white); }
+
+  #contact p {
+    color: rgba(253,252,251,0.65);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2.5rem;
+  }
+
+  .contact-details a {
+    color: rgba(253,252,251,0.6);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .contact-details a:hover { color: var(--warm-white); }
+
+  .contact-divider {
+    color: rgba(253,252,251,0.2);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #1e1e1b;
+    padding: 2rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(253,252,251,0.4);
+    text-decoration: none;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(253,252,251,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 90px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--light-gray);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .timeline-week {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+    text-align: right;
+    padding-right: 1.5rem;
+    padding-top: 0.15rem;
+  }
+
+  .timeline-content {
+    padding-left: 1.5rem;
+    border-left: none;
+    position: relative;
+  }
+
+  .timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 8px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--warm-white);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+
+  .timeline-content h4 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.85rem;
+    color: var(--mid-gray);
+    line-height: 1.7;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    section { padding: 4rem 2rem; }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { padding: 5rem 2rem 3rem; }
+    .hero-image { min-height: 50vw; }
+
+    #philosophy { grid-template-columns: 1fr; }
+    .philosophy-text { padding: 4rem 2rem; }
+    .philosophy-image { min-height: 300px; }
+
+    .services-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .service-cards { grid-template-columns: 1fr; }
+
+    .process-grid { grid-template-columns: 1fr 1fr; }
+
+    #investment { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+
+    #about { grid-template-columns: 1fr; }
+    .about-image { min-height: 300px; }
+    .about-text { padding: 4rem 2rem; }
+
+    .faq-grid { grid-template-columns: 1fr; }
+
+    #contact { padding: 5rem 2rem; }
+    .contact-details { flex-direction: column; gap: 1rem; align-items: center; }
+
+    footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+
+    .timeline::before { left: 70px; }
+    .timeline-item { grid-template-columns: 70px 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .process-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#process" onclick="closeMobileMenu()">Process</a>
+  <a href="#investment" onclick="closeMobileMenu()">Investment</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#contact" onclick="closeMobileMenu()">Work With Me</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Martha Ware Design</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#investment">Investment</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta btn btn-dark">Work With Me</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMobileMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Full-Service Interior Design · Seattle Metro Area</p>
+    <h1 class="hero-heading">Thoughtfully Designed,<br><em>Beautifully Livable</em><br>Homes</h1>
+    <p class="hero-body">We partner with discerning homeowners, architects, and builders on custom new-builds and transformative remodels—from early planning through final styling.</p>
+    <a href="#contact" class="btn btn-dark" style="align-self: flex-start;">Book a Free Consultation</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/5c9bfcbe-a0e6-44c2-a518-f721107baff4/Virginia+Roberts+13.jpg" alt="Beautiful, thoughtfully designed kitchen interior" onerror="this.style.background='#e8e5e0'; this.removeAttribute('src');">
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="philosophy-text">
+    <p class="section-eyebrow">Philosophy</p>
+    <h2 class="section-heading">Design That Reflects <em>How You Live</em></h2>
+    <blockquote>
+      "The best rooms have something to say about the people who live in them."
+      <cite>— David Hicks</cite>
+    </blockquote>
+    <p>In my house, it's books, travel treasures, art from people and places I love, family mementos, and casual but curated furnishings. For you, it might be a vintage lamp or handmade tiles from a far-flung adventure.</p>
+    <p>My philosophy is simple: personalized design that helps elevate everyday life. We work collaboratively to create a unique design that fits your lifestyle and aesthetic—from our first meeting to final styling.</p>
+  </div>
+  <div class="philosophy-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/98cc7e6c-1bee-49a0-88e8-c7d933248ba0/headshot2.jpg" alt="Martha Ware, interior designer" onerror="this.style.background='#3a3935'; this.removeAttribute('src');">
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-intro">
+    <div>
+      <p class="section-eyebrow">Services</p>
+      <h2 class="section-heading">What We <em>Offer</em></h2>
+      <div class="divider"></div>
+    </div>
+    <p style="color: var(--mid-gray); font-size: 0.95rem; line-height: 1.9; padding-top: 0.5rem;">A home renovation involves countless decisions, and we're here to guide you through every step. Our process is the same whether we're working on a large-scale remodel or a smaller, more focused project.</p>
+  </div>
+  <div class="service-cards">
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <h3>Full-Service Interior Design</h3>
+      <p>Whole home remodel, partial-home remodel, or new-build. Start-to-finish support: from big-picture vision down to the final styling. Four key collaborative meetings, curated selections, and complete oversight through purchasing, construction, and installation.</p>
+      <a href="#contact">Get Started →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <h3>Furnishing & Styling</h3>
+      <p>Not remodeling, but ready for a refresh? We'll create a cohesive plan for your space—custom trade-only pieces, vintage finds, or accessible options—whatever best fits your budget and priorities. An intentional, livable space that feels like you.</p>
+      <a href="#contact">Get Started →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <h3>Design Consultations</h3>
+      <p>A great option if you prefer a more DIY approach but need a fresh perspective. You implement, we guide. Available locally or virtually anywhere—with floor plans, furniture layouts, and a complete design concept and purchasing list tailored to you.</p>
+      <a href="#contact">Get Started →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <p class="section-eyebrow">How It Works</p>
+  <h2 class="section-heading">The <em>Process</em></h2>
+  <div class="divider"></div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-week">Week 1</div>
+      <div class="timeline-content">
+        <h4>Phase 1 — Kickoff & Design Vision</h4>
+        <p>Kickoff meeting with questionnaire and site measuring. Concept meeting and floor plan meeting to establish direction.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">Week 9</div>
+      <div class="timeline-content">
+        <h4>Phase 2 — Sourcing & Main Presentation</h4>
+        <p>Showroom visits as needed. Presentation meeting to review samples, product options, and 3D renderings of your designed space.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">Week 12</div>
+      <div class="timeline-content">
+        <h4>Phase 3 — Re-Sourcing & Documentation</h4>
+        <p>Fine-tuning selections. Creation of purchasing spec sheets, construction documents, and final renderings.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">Week 15</div>
+      <div class="timeline-content">
+        <h4>Phase 4 — Pre-Construction</h4>
+        <p>Structural engineering and permitting coordination as needed. Contractor referrals. All documents finalized and sent to your contractor.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">Varies</div>
+      <div class="timeline-content">
+        <h4>Phase 5 — Purchasing & Construction</h4>
+        <p>We procure all fixtures and furnishings, handle ordering and logistics with White Glove inspection. Construction site visits as needed.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">Varies</div>
+      <div class="timeline-content">
+        <h4>Phase 6 — Final Details & Photography</h4>
+        <p>Installation of soft furnishings and window coverings. Final styling and coordination of professional photography of your completed home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section id="investment">
+  <div class="investment-text">
+    <p class="section-eyebrow">Investment</p>
+    <h2 class="section-heading">Transparent <em>Pricing</em></h2>
+    <div class="divider"></div>
+    <p style="font-size: 0.875rem; color: var(--mid-gray); line-height: 1.9; margin-bottom: 2rem;">Design fees are typically 10–15% of your construction budget. Smaller single-room projects fall toward the lower end; larger, multi-room projects with custom millwork or structural changes fall toward the upper end.</p>
+
+    <div class="investment-item">
+      <h4>Design Phase & Final Styling</h4>
+      <p>Flat fee billed 50% upfront and 50% at completion. For projects 2 years or longer, a 20% deposit starts the project with the remainder spread across monthly payments.</p>
+    </div>
+    <div class="investment-item">
+      <h4>Procurement & Construction</h4>
+      <p>All items we purchase on your behalf carry a standard 20% markup. Any trade discounts are passed along to you. Construction site visits are billed hourly.</p>
+    </div>
+    <div class="investment-item">
+      <h4>A Note on Trade Pricing</h4>
+      <p>Access to trade-only vendors and exclusive discounts is one of the meaningful benefits of working with a professional designer.</p>
+    </div>
+  </div>
+  <div class="investment-callout">
+    <div class="callout-number">10–15%</div>
+    <div class="callout-label">of Construction Budget</div>
+    <p class="callout-detail">For preliminary budgeting purposes only. A detailed design proposal with exact fees is provided once project scope is defined.</p>
+    <p class="callout-detail">Includes design meetings, 2D and 3D drawings, finish selections, showroom visits, purchasing, trade coordination, construction oversight, and final styling.</p>
+    <a href="#contact" class="btn btn-outline" style="color: var(--warm-white); border-color: rgba(253,252,251,0.3); margin-top: 1rem;">Request a Proposal</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <p class="section-eyebrow">FAQ</p>
+  <h2 class="section-heading">Common <em>Questions</em></h2>
+  <div class="divider"></div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <h4>I've never worked with a designer before. Is this for me?</h4>
+      <p>Absolutely! Many people feel nervous that the process will be confusing or that their taste isn't "good enough." My job is to guide you, listen to you, and translate your desires into a space you love. There are no dumb questions.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What's your design style?</h4>
+      <p>My specialty is your style. I don't impose trends on your home. Instead, I focus on what you're naturally drawn to and help you refine it into a cohesive, functional, and beautiful look that will feel authentic for years to come.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Do I have to get rid of all my old furniture?</h4>
+      <p>Not at all! I love helping clients integrate their existing furniture, art, and collectibles into a new design. It's about refreshing and renewing your space—often by working with what you already have and strategically adding new pieces.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What does the process look like?</h4>
+      <p>It starts with a free 20-minute call to connect. If we're a good fit, we schedule an in-home consultation, I provide a detailed proposal, and once you approve, we begin with a kickoff meeting and work through the project in clear phases.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/98cc7e6c-1bee-49a0-88e8-c7d933248ba0/headshot2.jpg" alt="Martha Ware, Seattle interior designer" onerror="this.style.background='#d8d4cc'; this.removeAttribute('src');">
+  </div>
+  <div class="about-text">
+    <p class="section-eyebrow">About</p>
+    <h2 class="section-heading">Hi, I'm <em>Martha</em></h2>
+    <div class="divider"></div>
+    <p>I specialize in home remodels and refreshes in the Seattle Metro area, with an equal love for form and function. Your home should look beautiful, feel welcoming, and work hard for the people—and pets!—who live in it.</p>
+    <p>My role is to uncover your unique point of view and aesthetic, then translate that into spaces that feel authentic, practical, and truly livable.</p>
+    <p>I've lived all over the world and draw inspiration from both natural and built environments. The Pacific Northwest offers the best of both, so I feel lucky to find ideas around every corner. When I'm not designing, you'll find me hiking, walking, reading, cooking, eating in and out, and laughing as much as possible with family and friends.</p>
+    <a href="#contact" class="btn btn-dark" style="align-self: flex-start; margin-top: 1rem;">Let's Work Together</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-eyebrow">Work With Me</p>
+  <h2 class="section-heading">Ready to <em>Get Started?</em></h2>
+  <p>Book a free 20-minute consultation call. We'll connect, talk through your project, and see if we're a good fit.</p>
+  <a href="mailto:martha@marthawaredesign.com" class="btn btn-outline" style="color: var(--warm-white); border-color: rgba(253,252,251,0.4);">Book a Free Consultation</a>
+  <div class="contact-details">
+    <a href="mailto:martha@marthawaredesign.com">martha@marthawaredesign.com</a>
+    <span class="contact-divider">·</span>
+    <a href="tel:2064033636">206-403-3636</a>
+    <span class="contact-divider">·</span>
+    <a href="https://www.instagram.com/marthawaredesign/" target="_blank" rel="noopener">@marthawaredesign</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#home" class="footer-logo">Martha Ware Design</a>
+  <p class="footer-copy">© 2025 Martha Ware Design · Seattle, WA</p>
+</footer>
+
+<script>
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 120) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current ? 'var(--charcoal)' : '';
+    });
+  });
+</script>
+</body>
+</html>
