@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martha Ware Design | Full-Service Interior Design, Seattle</title>
+<meta name="description" content="Full-service residential interior design for discerning homeowners in the Seattle Metro Area. Custom new-builds and transformative remodels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f9f7f4;
+    --warm-white: #fdfcfb;
+    --charcoal: #2c2b28;
+    --mid-gray: #7a7872;
+    --light-gray: #e8e5e0;
+    --accent: #8b7355;
+    --accent-light: #c4b49a;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(253,252,251,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    color: var(--charcoal);
+    text-transform: uppercase;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--mid-gray);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--charcoal); }
+
+  .nav-cta {
+    background: var(--charcoal) !important;
+    color: var(--warm-white) !important;
+    padding: 0.5rem 1.25rem !important;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--charcoal); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--warm-white);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: var(--font-serif); font-size: 2rem; text-decoration: none; color: var(--charcoal); }
+
+  .mobile-close {
+    position: absolute; top: 1.5rem; right: 2rem;
+    font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--charcoal);
+  }
+
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: var(--font-sans);
+    padding: 0.85rem 2rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-dark { background: var(--charcoal); color: var(--warm-white); }
+  .btn-dark:hover { background: #444; }
+  .btn-outline { background: transparent; border: 1px solid; }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 70px;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 5rem 6rem 6rem;
+    background: var(--cream);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .hero-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 4vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-heading em { font-style: italic; color: var(--accent); }
+
+  .hero-body {
+    font-size: 0.95rem;
+    color: var(--mid-gray);
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    line-height: 1.9;
+  }
+
+  .hero-image { overflow: hidden; }
+
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  section { padding: 6rem; }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-heading em { font-style: italic; }
+
+  .divider { width: 40px; height: 1px; background: var(--accent-light); margin-bottom: 2rem; }
+
+  #philosophy {
+    background: var(--charcoal);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+
+  .philosophy-text {
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .philosophy-text .section-heading { color: var(--warm-white); }
+  .philosophy-text .section-eyebrow { color: var(--accent-light); }
+  .philosophy-text p { color: rgba(253,252,251,0.75); margin-bottom: 1.25rem; font-size: 1rem; line-height: 1.9; }
+
+  blockquote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--accent-light);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--accent);
+  }
+
+  blockquote cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-top: 0.75rem;
+  }
+
+  .philosophy-image { overflow: hidden; min-height: 500px; }
+  .philosophy-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; filter: brightness(0.85); }
+
+  #services { background: var(--cream); }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    align-items: start;
+  }
+
+  .services-header p { font-size: 0.95rem; color: var(--mid-gray); line-height: 1.9; }
+
+  .phase-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--light-gray);
+    border: 1.5px solid var(--light-gray);
+  }
+
+  .phase-card { background: var(--warm-white); padding: 2.5rem; }
+
+  .phase-number {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--light-gray);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .phase-card h3 { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.75rem; }
+  .phase-card p { font-size: 0.9rem; color: var(--mid-gray); line-height: 1.85; }
+
+  #investment {
+    background: var(--warm-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .investment-intro { font-size: 0.875rem; color: var(--mid-gray); line-height: 1.9; margin-bottom: 2rem; }
+
+  .investment-item { border-top: 1px solid var(--light-gray); padding: 1.5rem 0; }
+  .investment-item:last-of-type { border-bottom: 1px solid var(--light-gray); }
+  .investment-item h4 { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.5rem; }
+  .investment-item p { font-size: 0.875rem; color: var(--mid-gray); line-height: 1.8; }
+
+  .investment-callout { background: var(--charcoal); color: var(--warm-white); padding: 3rem; }
+
+  .callout-number { font-family: var(--font-serif); font-size: 4rem; font-weight: 300; color: var(--accent-light); line-height: 1; margin-bottom: 0.5rem; }
+  .callout-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,251,0.45); margin-bottom: 2rem; }
+  .callout-detail { font-size: 0.875rem; color: rgba(253,252,251,0.7); line-height: 1.8; margin-bottom: 0.75rem; }
+
+  #faq { background: var(--cream); }
+
+  .faq-list { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0 4rem; }
+
+  .faq-item { border-top: 1px solid var(--light-gray); padding: 1.5rem 0; }
+  .faq-item h4 { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.75rem; line-height: 1.4; }
+  .faq-item p { font-size: 0.875rem; color: var(--mid-gray); line-height: 1.85; }
+
+  #about {
+    background: var(--warm-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+
+  .about-image { overflow: hidden; min-height: 600px; }
+  .about-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+  .about-text { padding: 6rem; display: flex; flex-direction: column; justify-content: center; }
+  .about-text p { font-size: 0.95rem; color: var(--mid-gray); line-height: 1.9; margin-bottom: 1.25rem; }
+
+  #contact { background: var(--charcoal); color: var(--warm-white); text-align: center; padding: 7rem 6rem; }
+  #contact .section-eyebrow { color: var(--accent-light); }
+  #contact .section-heading { color: var(--warm-white); }
+  #contact > p { color: rgba(253,252,251,0.65); max-width: 480px; margin: 0 auto 2.5rem; font-size: 0.95rem; line-height: 1.8; }
+
+  .contact-details { display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .contact-details a { color: rgba(253,252,251,0.55); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; transition: color 0.2s; }
+  .contact-details a:hover { color: var(--warm-white); }
+  .contact-dot { color: rgba(253,252,251,0.2); }
+
+  footer { background: #1e1e1b; padding: 2rem 6rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: var(--font-serif); font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(253,252,251,0.3); text-decoration: none; }
+  .footer-copy { font-size: 0.75rem; color: rgba(253,252,251,0.22); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 4rem 2rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { padding: 5rem 2rem 3rem; }
+    .hero-image { min-height: 55vw; }
+    #philosophy { grid-template-columns: 1fr; }
+    .philosophy-text { padding: 4rem 2rem; }
+    .philosophy-image { min-height: 280px; }
+    .services-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+    .phase-cards { grid-template-columns: 1fr; }
+    #investment { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    #about { grid-template-columns: 1fr; }
+    .about-image { min-height: 300px; }
+    .about-text { padding: 4rem 2rem; }
+    .faq-list { grid-template-columns: 1fr; }
+    #contact { padding: 5rem 2rem; }
+    .contact-details { flex-direction: column; gap: 1rem; }
+    footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#services" onclick="closeMobileMenu()">Services & FAQ</a>
+  <a href="#investment" onclick="closeMobileMenu()">Investment</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#contact" onclick="closeMobileMenu()">Work With Me</a>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">Martha Ware Design</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services & FAQ</a></li>
+    <li><a href="#investment">Investment</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Work With Me</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMobileMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Full-Service Interior Design · Seattle Metro Area</p>
+    <h1 class="hero-heading">Thoughtfully Designed,<br><em>Beautifully Livable</em> Homes</h1>
+    <p class="hero-body">Your home should feel as considered as the rest of your life. We partner with discerning homeowners, architects, and builders on custom new-builds and transformative remodels. Rather than chasing trends, we create a tailored, enduring look that reflects your taste and supports the way you truly live. Our full-service design process is collaborative and highly guided—offering clear direction, curated options, and a calm, organized path from early planning through construction all the way to furnishing and styling.</p>
+    <a href="#contact" class="btn btn-dark" style="align-self:flex-start;">Book a Free Consultation</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/5c9bfcbe-a0e6-44c2-a518-f721107baff4/Virginia+Roberts+13.jpg" alt="Beautifully designed interior by Martha Ware Design" onerror="this.style.background='#e8e5e0';this.removeAttribute('src');">
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="philosophy-text">
+    <p class="section-eyebrow">Philosophy</p>
+    <h2 class="section-heading">Design That Reflects <em>How You Live</em></h2>
+    <blockquote>
+      "The best rooms have something to say about the people who live in them."
+      <cite>— David Hicks</cite>
+    </blockquote>
+    <p>In my house, it's books, lots of travel treasures, art from people and places I love, family mementos, and casual but curated furnishings.</p>
+    <p>For you, it might be a vintage lamp or hand-made tiles from a far-flung adventure. My philosophy is simple: personalized design that helps elevate everyday life. We work collaboratively to create a unique design that fits your lifestyle and aesthetic.</p>
+    <p>Whether it's a renovation or refurnishing project, you'll have personalized guidance from our first meeting to final styling.</p>
+  </div>
+  <div class="philosophy-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/98cc7e6c-1bee-49a0-88e8-c7d933248ba0/headshot2.jpg" alt="Martha Ware, interior designer" onerror="this.style.background='#3a3935';this.removeAttribute('src');">
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <p class="section-eyebrow">Services</p>
+      <h2 class="section-heading">Full-Service Residential <em>Interior Design</em></h2>
+      <div class="divider"></div>
+      <p style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:400;">Seattle Metro Area</p>
+    </div>
+    <div>
+      <p style="font-size:0.95rem;color:var(--mid-gray);line-height:1.9;margin-bottom:1rem;">Custom new build, whole or partial-home remodel – this is your jam! It can feel dizzying to make dozens of decisions and then see them through while navigating a construction zone. Our full-service design package gives you start‑to‑finish support: from big‑picture vision down to the final styling, so you end up in a home you truly love.</p>
+      <p style="font-size:0.95rem;color:var(--mid-gray);line-height:1.9;">Our process takes place in three key phases so you're supported every step of the way:</p>
+    </div>
+  </div>
+  <div class="phase-cards">
+    <div class="phase-card">
+      <div class="phase-number">01</div>
+      <h3>Dream & Design</h3>
+      <p>We begin with a deep dive into how you live, what you love, and what isn't working now. From there, we develop a clear design vision with space plans, key concepts, and a curated presentation of finishes, fixtures, and furnishings so you can see the full story of your home taking shape.</p>
+    </div>
+    <div class="phase-card">
+      <div class="phase-number">02</div>
+      <h3>Detail & Prepare</h3>
+      <p>Once the direction is approved, we refine selections, re‑source as needed, and translate every decision into detailed drawings, specifications, and documents your contractor can build from with confidence. During this pre‑construction phase, we coordinate with your architect, builder, and engineer so the design is fully integrated before work begins.</p>
+    </div>
+    <div class="phase-card">
+      <div class="phase-number">03</div>
+      <h3>Build, Install & Reveal</h3>
+      <p>As construction and purchasing move forward, we remain closely involved—answering design questions, reviewing key moments on site, and managing orders and deliveries. We finish with installation, styling, and photography, bringing every last detail to life so you can step into a finished home that feels effortless and entirely yours.</p>
+    </div>
+  </div>
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="#contact" class="btn btn-dark">Get Started</a>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section id="investment">
+  <div>
+    <p class="section-eyebrow">Investment</p>
+    <h2 class="section-heading">Transparent <em>Pricing</em></h2>
+    <div class="divider"></div>
+    <p class="investment-intro">For full-service projects, we work on a flat design fee for the clearly defined design phase, paired with an hourly rate for construction support and implementation, plus a standard markup on furnishings and materials we purchase on your behalf. For budgeting, we recommend planning on roughly 10–15% of the construction budget for design services, depending on scope and complexity. Once we understand your project, we will provide a tailored proposal with clear deliverables and fees.</p>
+    <div class="investment-item">
+      <h4>Design Phase & Final Styling/Photography</h4>
+      <p>Flat fee billed 50% upfront and 50% at completion of the design phase. For projects lasting 2 years or longer, a 20% deposit starts the project with the remainder billed in regular monthly payments.</p>
+    </div>
+    <div class="investment-item">
+      <h4>Procurement & Construction Phase</h4>
+      <p>We handle purchasing for all items needed to implement the design—ordering, tracking, and logistics including White Glove inspection before delivery. All items we procure carry a standard 20% markup. Any trade discounts that apply will be passed along to you. Site visits during construction are billed hourly.</p>
+    </div>
+    <div class="investment-item">
+      <h4>Trade Access & Discounts</h4>
+      <p>Access to trade-only vendors and exclusive discounts is one of the meaningful benefits of working with a professional designer. These savings are always passed along to you.</p>
+    </div>
+  </div>
+  <div class="investment-callout">
+    <div class="callout-number">10–15%</div>
+    <div class="callout-label">of Construction Budget</div>
+    <p class="callout-detail">For preliminary budgeting purposes only. A detailed design proposal with exact fees is provided once the project scope is defined.</p>
+    <p class="callout-detail">Includes design meetings, 2D and 3D drawings, finish selections, showroom visits, purchasing, trade coordination, construction oversight, and final styling and photography.</p>
+    <a href="#contact" class="btn btn-outline" style="color:var(--warm-white);border-color:rgba(253,252,251,0.35);margin-top:1.5rem;">Request a Proposal</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <p class="section-eyebrow">FAQ</p>
+  <h2 class="section-heading">Common <em>Questions</em></h2>
+  <div class="divider"></div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h4>At what stage in our new-build or remodel should we bring you into the project?</h4>
+      <p>Ideally, as early as possible—at the same time you're engaging your architect and builder or even just starting to think through plans. Early involvement lets us influence the flow, floor plans, and key dimensions that affect cabinetry, furniture layouts, and lighting. Our full-service design package includes detailed construction drawings and 3D renderings, so we ensure the interiors receive as much careful thought and planning as the exteriors.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How do you structure your fees for full-service design on custom homes and major remodels?</h4>
+      <p>For full-service projects, we work on a flat design fee for the clearly defined design phase, paired with an hourly rate for construction support and implementation, plus a standard markup on furnishings and materials we purchase on your behalf. For budgeting, we recommend planning on roughly 10–15% of the construction budget for design services, depending on scope and complexity. Once we understand your project, we will provide a tailored proposal with clear deliverables and fees.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What exactly is included in "full-service" design, and what will still be our responsibility?</h4>
+      <p>Full-service means we handle the complete design journey—from initial concepts and space planning through detailed drawings, material and fixture selections, and a fully furnished, styled finish. This typically includes floor plans, elevations, 3D renderings, specification sheets, showroom visits, and coordination with your architect, builder, and key trades. You remain the contracting party with your builder and vendors, but we guide the design decisions, provide the documentation they need, and stay involved to help keep the project aligned with the vision.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How do you work with our architect, builder, and other consultants?</h4>
+      <p>We view your architect and builder as collaborators. The architect typically leads structure and envelope; the builder manages construction and schedule. We focus on interiors—space planning, finishes, cabinetry details, lighting design, and furnishings. We can attend joint meetings as needed, share detailed drawings and specs, and are available to answer design-related questions as they come up so your team can build confidently and efficiently.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What is a typical project timeline—from initial consultation to installation?</h4>
+      <p>Timelines vary by scope and permitting, but as a general guide: the design phase for a major kitchen, primary suite, or several key spaces often takes 10–16 weeks from kickoff to permit- and bid-ready drawings and selections. Construction can take several months for a remodel and 9–18+ months for a full custom home. Furnishings and final styling are typically layered in as construction wraps.</p>
+    </div>
+    <div class="faq-item">
+      <h4>We don't live in Seattle full-time. Can you manage the design and coordination while we're remote?</h4>
+      <p>Yes. We work with clients who travel often or split time between homes. We can handle most design meetings via video, share drawings and selections digitally, and coordinate with your local team on-site. We can be your eyes and ears here—conducting site visits as needed, sending progress updates, and managing the details so you can stay involved in the decision-making without having to be here for every step.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How involved do we need to be in decisions, and how many options will we be expected to review?</h4>
+      <p>Our goal is to make the process as streamlined as possible. We'll spend time up front getting clear on your preferences, priorities, and how you live. From there, we typically present a highly curated set of options for each decision—enough choice to feel personalized, but not so much that it's overwhelming. You're involved in all key decisions, but we do the heavy lifting of editing, sourcing, and coordinating so you can move through the process with clarity and confidence.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What level of budget should we anticipate, and how do you help us stay on track?</h4>
+      <p>Budget is highly dependent on scope, size, and the level of customization you're aiming for, but we can give you realistic ranges once we understand your project. Early in the process, we'll discuss your target investment for both construction and furnishings, and we will advise whether that aligns with your goals. Throughout the project, we track selections against that budget, flag potential overages, and offer options at different price points so you can make informed decisions and invest where it matters most.</p>
+    </div>
+  </div>
+  <div style="margin-top:3rem;text-align:center;">
+    <a href="#contact" class="btn btn-dark">Book a Consult</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/98cc7e6c-1bee-49a0-88e8-c7d933248ba0/headshot2.jpg" alt="Martha Ware, Seattle interior designer" onerror="this.style.background='#d8d4cc';this.removeAttribute('src');">
+  </div>
+  <div class="about-text">
+    <p class="section-eyebrow">About</p>
+    <h2 class="section-heading">Hi! I'm <em>Martha.</em></h2>
+    <div class="divider"></div>
+    <p>I specialize in home remodels and refreshes in the Seattle Metro area, with an equal love for form and function. Your home should look beautiful, feel welcoming, and work hard for the people (and pets!) who live in it. My role is to uncover your unique point of view and aesthetic, then translate that into spaces that feel authentic, practical, and truly livable.</p>
+    <p>A little about me … I've lived all over the world and draw inspiration from both natural and built environments. The Pacific Northwest offers the best of both, so I feel lucky to find ideas around every corner. When I'm not designing, you'll find me hiking, walking, reading, cooking, eating in and eating out, and laughing as much as possible with family and friends.</p>
+    <p>I'd love to meet you and dig into your project together.</p>
+    <a href="#contact" class="btn btn-dark" style="align-self:flex-start;margin-top:1rem;">Let's Work Together</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-eyebrow">Work With Me</p>
+  <h2 class="section-heading">Ready to <em>Get Started?</em></h2>
+  <p>Book an initial consultation through the website or reach out directly. I'd love to meet you and dig into your project together.</p>
+  <a href="mailto:martha@marthawaredesign.com" class="btn btn-outline" style="color:var(--warm-white);border-color:rgba(253,252,251,0.4);">Book a Free Consultation</a>
+  <div class="contact-details">
+    <a href="mailto:martha@marthawaredesign.com">martha@marthawaredesign.com</a>
+    <span class="contact-dot">·</span>
+    <a href="tel:2064033636">206-403-3636</a>
+    <span class="contact-dot">·</span>
+    <a href="https://www.instagram.com/marthawaredesign/" target="_blank" rel="noopener">@marthawaredesign</a>
+  </div>
+</section>
+
+<footer>
+  <a href="#home" class="footer-logo">Martha Ware Design</a>
+  <p class="footer-copy">© 2025 Martha Ware Design · Seattle, WA</p>
+</footer>
+
+<script>
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
+</body>
+</html>
