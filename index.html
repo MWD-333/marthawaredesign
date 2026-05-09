@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martha Ware Design | Full-Service Interior Design, Seattle</title>
+<meta name="description" content="Full-service residential interior design for discerning homeowners in the Seattle Metro Area. Custom new-builds and transformative remodels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f9f7f4;
+    --warm-white: #fdfcfb;
+    --charcoal: #2c2b28;
+    --mid-gray: #7a7872;
+    --light-gray: #e8e5e0;
+    --accent: #8b7355;
+    --accent-light: #c4b49a;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(253,252,251,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    color: var(--charcoal);
+    text-transform: uppercase;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--mid-gray);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--charcoal); }
+
+  .nav-cta {
+    background: var(--charcoal) !important;
+    color: var(--warm-white) !important;
+    padding: 0.5rem 1.25rem !important;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--charcoal); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--warm-white);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: var(--font-serif); font-size: 2rem; text-decoration: none; color: var(--charcoal); }
+
+  .mobile-close {
+    position: absolute; top: 1.5rem; right: 2rem;
+    font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--charcoal);
+  }
+
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: var(--font-sans);
+    padding: 0.85rem 2rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-dark { background: var(--charcoal); color: var(--warm-white); }
+  .btn-dark:hover { background: #444; }
+  .btn-outline { background: transparent; border: 1px solid; }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 70px;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 5rem 6rem 6rem;
+    background: var(--cream);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .hero-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 4vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-heading em { font-style: italic; color: var(--accent); }
+
+  .hero-body {
+    font-size: 0.95rem;
+    color: var(--mid-gray);
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    line-height: 1.9;
+  }
+
+  .hero-image { overflow: hidden; }
+
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  section { padding: 6rem; }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-heading em { font-style: italic; }
+
+  .divider { width: 40px; height: 1px; background: var(--accent-light); margin-bottom: 2rem; }
+
+  #philosophy {
+    background: var(--charcoal);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+
+  .philosophy-text {
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .philosophy-text .section-heading { color: var(--warm-white); }
+  .philosophy-text .section-eyebrow { color: var(--accent-light); }
+  .philosophy-text p { color: rgba(253,252,251,0.75); margin-bottom: 1.25rem; font-size: 1rem; line-height: 1.9; }
+
+  blockquote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--accent-light);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--accent);
+  }
+
+  blockquote cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-top: 0.75rem;
+  }
+
+  .philosophy-image { overflow: hidden; min-height: 500px; }
+  .philosophy-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; filter: brightness(0.85); }
+
+  #services { background: var(--cream); }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    align-items: start;
+  }
+
+  .services-header p { font-size: 0.95rem; color: var(--mid-gray); line-height: 1.9; }
+
+  .phase-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--light-gray);
+    border: 1.5px solid var(--light-gray);
+  }
+
+  .phase-card { background: var(--warm-white); padding: 2.5rem; }
+
+  .phase-number {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--light-gray);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .phase-card h3 { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.75rem; }
+  .phase-card p { font-size: 0.9rem; color: var(--mid-gray); line-height: 1.85; }
+
+  #investment {
+    background: var(--warm-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .investment-intro { font-size: 0.875rem; color: var(--mid-gray); line-height: 1.9; margin-bottom: 2rem; }
+
+  .investment-item { border-top: 1px solid var(--light-gray); padding: 1.5rem 0; }
+  .investment-item:last-of-type { border-bottom: 1px solid var(--light-gray); }
+  .investment-item h4 { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.5rem; }
+  .investment-item p { font-size: 0.875rem; color: var(--mid-gray); line-height: 1.8; }
+
+  .investment-callout { background: var(--charcoal); color: var(--warm-white); padding: 3rem; }
+
+  .callout-number { font-family: var(--font-serif); font-size: 4rem; font-weight: 300; color: var(--accent-light); line-height: 1; margin-bottom: 0.5rem; }
+  .callout-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,251,0.45); margin-bottom: 2rem; }
+  .callout-detail { font-size: 0.875rem; color: rgba(253,252,251,0.7); line-height: 1.8; margin-bottom: 0.75rem; }
+
+  #faq { background: var(--cream); }
+
+  .faq-list { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0 4rem; }
+
+  .faq-item { border-top: 1px solid var(--light-gray); padding: 1.5rem 0; }
+  .faq-item h4 { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.75rem; line-height: 1.4; }
+  .faq-item p { font-size: 0.875rem; color: var(--mid-gray); line-height: 1.85; }
+
+  #about {
+    background: var(--warm-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+
+  .about-image { overflow: hidden; min-height: 600px; }
+  .about-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+  .about-text { padding: 6rem; display: flex; flex-direction: column; justify-content: center; }
+  .about-text p { font-size: 0.95rem; color: var(--mid-gray); line-height: 1.9; margin-bottom: 1.25rem; }
+
+  #contact { background: var(--charcoal); color: var(--warm-white); text-align: center; padding: 7rem 6rem; }
+  #contact .section-eyebrow { color: var(--accent-light); }
+  #contact .section-heading { color: var(--warm-white); }
+  #contact > p { color: rgba(253,252,251,0.65); max-width: 480px; margin: 0 auto 2.5rem; font-size: 0.95rem; line-height: 1.8; }
+
+  .contact-details { display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .contact-details a { color: rgba(253,252,251,0.55); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; transition: color 0.2s; }
+  .contact-details a:hover { color: var(--warm-white); }
+  .contact-dot { color: rgba(253,252,251,0.2); }
+
+  /* PORTFOLIO */
+  #portfolio { background: var(--warm-white); padding: 6rem; }
+
+  .portfolio-project { margin-bottom: 5rem; }
+  .portfolio-project:last-child { margin-bottom: 0; }
+
+  .portfolio-project-header { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--light-gray); }
+
+  .portfolio-project-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 0.25rem;
+  }
+
+  .portfolio-project-header p {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--mid-gray);
+    font-style: italic;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .portfolio-grid img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+    cursor: pointer;
+  }
+
+  .portfolio-grid img:hover { opacity: 0.88; }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(30,30,27,0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    color: rgba(253,252,251,0.7);
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(253,252,251,0.6);
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    line-height: 1;
+  }
+
+  .lightbox-prev { left: 1rem; }
+  .lightbox-next { right: 1rem; }
+
+  footer { background: #1e1e1b; padding: 2rem 6rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: var(--font-serif); font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(253,252,251,0.3); text-decoration: none; }
+  .footer-copy { font-size: 0.75rem; color: rgba(253,252,251,0.22); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 4rem 2rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { padding: 5rem 2rem 3rem; }
+    .hero-image { min-height: 55vw; }
+    #philosophy { grid-template-columns: 1fr; }
+    .philosophy-text { padding: 4rem 2rem; }
+    .philosophy-image { min-height: 280px; }
+    .services-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+    .phase-cards { grid-template-columns: 1fr; }
+    #investment { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    #about { grid-template-columns: 1fr; }
+    .about-image { min-height: 300px; }
+    .about-text { padding: 4rem 2rem; }
+    .faq-list { grid-template-columns: 1fr; }
+    #contact { padding: 5rem 2rem; }
+    .contact-details { flex-direction: column; gap: 1rem; }
+    #portfolio { padding: 4rem 2rem; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#services" onclick="closeMobileMenu()">Services & FAQ</a>
+  <a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a>
+  <a href="#investment" onclick="closeMobileMenu()">Investment</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#contact" onclick="closeMobileMenu()">Work With Me</a>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">Martha Ware Design</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services & FAQ</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#investment">Investment</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Work With Me</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMobileMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Full-Service Interior Design · Seattle Metro Area</p>
+    <h1 class="hero-heading">Thoughtfully Designed,<br><em>Beautifully Livable</em> Homes</h1>
+    <p class="hero-body">Your home should feel as considered as the rest of your life. We partner with discerning homeowners, architects, and builders on custom new-builds and transformative remodels. Rather than chasing trends, we create a tailored, enduring look that reflects your taste and supports the way you truly live. Our full-service design process is collaborative and highly guided—offering clear direction, curated options, and a calm, organized path from early planning through construction all the way to furnishing and styling.</p>
+    <a href="#contact" class="btn btn-dark" style="align-self:flex-start;">Book a Free Consultation</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/5c9bfcbe-a0e6-44c2-a518-f721107baff4/Virginia+Roberts+13.jpg" alt="Beautifully designed interior by Martha Ware Design" onerror="this.style.background='#e8e5e0';this.removeAttribute('src');">
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="philosophy-text">
+    <p class="section-eyebrow">Philosophy</p>
+    <h2 class="section-heading">Design That Reflects <em>How You Live</em></h2>
+    <blockquote>
+      "The best rooms have something to say about the people who live in them."
+      <cite>— David Hicks</cite>
+    </blockquote>
+    <p>In my house, it's books, lots of travel treasures, art from people and places I love, family mementos, and casual but curated furnishings.</p>
+    <p>For you, it might be a vintage lamp or hand-made tiles from a far-flung adventure. My philosophy is simple: personalized design that helps elevate everyday life. We work collaboratively to create a unique design that fits your lifestyle and aesthetic.</p>
+    <p>Whether it's a renovation or refurnishing project, you'll have personalized guidance from our first meeting to final styling.</p>
+  </div>
+  <div class="philosophy-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/98cc7e6c-1bee-49a0-88e8-c7d933248ba0/headshot2.jpg" alt="Martha Ware, interior designer" onerror="this.style.background='#3a3935';this.removeAttribute('src');">
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <p class="section-eyebrow">Services</p>
+      <h2 class="section-heading">Full-Service Residential <em>Interior Design</em></h2>
+      <div class="divider"></div>
+      <p style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:400;">Seattle Metro Area</p>
+    </div>
+    <div>
+      <p style="font-size:0.95rem;color:var(--mid-gray);line-height:1.9;margin-bottom:1rem;">Custom new build, whole or partial-home remodel – this is your jam! It can feel dizzying to make dozens of decisions and then see them through while navigating a construction zone. Our full-service design package gives you start‑to‑finish support: from big‑picture vision down to the final styling, so you end up in a home you truly love.</p>
+      <p style="font-size:0.95rem;color:var(--mid-gray);line-height:1.9;">Our process takes place in three key phases so you're supported every step of the way:</p>
+    </div>
+  </div>
+  <div class="phase-cards">
+    <div class="phase-card">
+      <div class="phase-number">01</div>
+      <h3>Dream & Design</h3>
+      <p>We begin with a deep dive into how you live, what you love, and what isn't working now. From there, we develop a clear design vision with space plans, key concepts, and a curated presentation of finishes, fixtures, and furnishings so you can see the full story of your home taking shape.</p>
+    </div>
+    <div class="phase-card">
+      <div class="phase-number">02</div>
+      <h3>Detail & Prepare</h3>
+      <p>Once the direction is approved, we refine selections, re‑source as needed, and translate every decision into detailed drawings, specifications, and documents your contractor can build from with confidence. During this pre‑construction phase, we coordinate with your architect, builder, and engineer so the design is fully integrated before work begins.</p>
+    </div>
+    <div class="phase-card">
+      <div class="phase-number">03</div>
+      <h3>Build, Install & Reveal</h3>
+      <p>As construction and purchasing move forward, we remain closely involved—answering design questions, reviewing key moments on site, and managing orders and deliveries. We finish with installation, styling, and photography, bringing every last detail to life so you can step into a finished home that feels effortless and entirely yours.</p>
+    </div>
+  </div>
+  <div style="margin-top:2.5rem;text-align:center;">
+    <a href="#contact" class="btn btn-dark">Get Started</a>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section id="investment">
+  <div>
+    <p class="section-eyebrow">Investment</p>
+    <h2 class="section-heading">Transparent <em>Pricing</em></h2>
+    <div class="divider"></div>
+    <p class="investment-intro">For full-service projects, we work on a flat design fee for the clearly defined design phase, paired with an hourly rate for construction support and implementation, plus a standard markup on furnishings and materials we purchase on your behalf. For budgeting, we recommend planning on roughly 10–15% of the construction budget for design services, depending on scope and complexity. Once we understand your project, we will provide a tailored proposal with clear deliverables and fees.</p>
+    <div class="investment-item">
+      <h4>Design Phase & Final Styling/Photography</h4>
+      <p>Flat fee billed 50% upfront and 50% at completion of the design phase. For projects lasting 2 years or longer, a 20% deposit starts the project with the remainder billed in regular monthly payments.</p>
+    </div>
+    <div class="investment-item">
+      <h4>Procurement & Construction Phase</h4>
+      <p>We handle purchasing for all items needed to implement the design—ordering, tracking, and logistics including White Glove inspection before delivery. All items we procure carry a standard 20% markup. Any trade discounts that apply will be passed along to you. Site visits during construction are billed hourly.</p>
+    </div>
+    <div class="investment-item">
+      <h4>Trade Access & Discounts</h4>
+      <p>Access to trade-only vendors and exclusive discounts is one of the meaningful benefits of working with a professional designer. These savings are always passed along to you.</p>
+    </div>
+  </div>
+  <div class="investment-callout">
+    <div class="callout-number">10–15%</div>
+    <div class="callout-label">of Construction Budget</div>
+    <p class="callout-detail">For preliminary budgeting purposes only. A detailed design proposal with exact fees is provided once the project scope is defined.</p>
+    <p class="callout-detail">Includes design meetings, 2D and 3D drawings, finish selections, showroom visits, purchasing, trade coordination, construction oversight, and final styling and photography.</p>
+    <a href="#contact" class="btn btn-outline" style="color:var(--warm-white);border-color:rgba(253,252,251,0.35);margin-top:1.5rem;">Request a Proposal</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <p class="section-eyebrow">FAQ</p>
+  <h2 class="section-heading">Common <em>Questions</em></h2>
+  <div class="divider"></div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h4>At what stage in our new-build or remodel should we bring you into the project?</h4>
+      <p>Ideally, as early as possible—at the same time you're engaging your architect and builder or even just starting to think through plans. Early involvement lets us influence the flow, floor plans, and key dimensions that affect cabinetry, furniture layouts, and lighting. Our full-service design package includes detailed construction drawings and 3D renderings, so we ensure the interiors receive as much careful thought and planning as the exteriors.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How do you structure your fees for full-service design on custom homes and major remodels?</h4>
+      <p>For full-service projects, we work on a flat design fee for the clearly defined design phase, paired with an hourly rate for construction support and implementation, plus a standard markup on furnishings and materials we purchase on your behalf. For budgeting, we recommend planning on roughly 10–15% of the construction budget for design services, depending on scope and complexity. Once we understand your project, we will provide a tailored proposal with clear deliverables and fees.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What exactly is included in "full-service" design, and what will still be our responsibility?</h4>
+      <p>Full-service means we handle the complete design journey—from initial concepts and space planning through detailed drawings, material and fixture selections, and a fully furnished, styled finish. This typically includes floor plans, elevations, 3D renderings, specification sheets, showroom visits, and coordination with your architect, builder, and key trades. You remain the contracting party with your builder and vendors, but we guide the design decisions, provide the documentation they need, and stay involved to help keep the project aligned with the vision.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How do you work with our architect, builder, and other consultants?</h4>
+      <p>We view your architect and builder as collaborators. The architect typically leads structure and envelope; the builder manages construction and schedule. We focus on interiors—space planning, finishes, cabinetry details, lighting design, and furnishings. We can attend joint meetings as needed, share detailed drawings and specs, and are available to answer design-related questions as they come up so your team can build confidently and efficiently.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What is a typical project timeline—from initial consultation to installation?</h4>
+      <p>Timelines vary by scope and permitting, but as a general guide: the design phase for a major kitchen, primary suite, or several key spaces often takes 10–16 weeks from kickoff to permit- and bid-ready drawings and selections. Construction can take several months for a remodel and 9–18+ months for a full custom home. Furnishings and final styling are typically layered in as construction wraps.</p>
+    </div>
+    <div class="faq-item">
+      <h4>We don't live in Seattle full-time. Can you manage the design and coordination while we're remote?</h4>
+      <p>Yes. We work with clients who travel often or split time between homes. We can handle most design meetings via video, share drawings and selections digitally, and coordinate with your local team on-site. We can be your eyes and ears here—conducting site visits as needed, sending progress updates, and managing the details so you can stay involved in the decision-making without having to be here for every step.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How involved do we need to be in decisions, and how many options will we be expected to review?</h4>
+      <p>Our goal is to make the process as streamlined as possible. We'll spend time up front getting clear on your preferences, priorities, and how you live. From there, we typically present a highly curated set of options for each decision—enough choice to feel personalized, but not so much that it's overwhelming. You're involved in all key decisions, but we do the heavy lifting of editing, sourcing, and coordinating so you can move through the process with clarity and confidence.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What level of budget should we anticipate, and how do you help us stay on track?</h4>
+      <p>Budget is highly dependent on scope, size, and the level of customization you're aiming for, but we can give you realistic ranges once we understand your project. Early in the process, we'll discuss your target investment for both construction and furnishings, and we will advise whether that aligns with your goals. Throughout the project, we track selections against that budget, flag potential overages, and offer options at different price points so you can make informed decisions and invest where it matters most.</p>
+    </div>
+  </div>
+  <div style="margin-top:3rem;text-align:center;">
+    <a href="#contact" class="btn btn-dark">Book a Consult</a>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <p class="section-eyebrow">Portfolio</p>
+  <h2 class="section-heading">Selected <em>Projects</em></h2>
+  <div class="divider"></div>
+
+  <!-- Green Lake Townhouse -->
+  <div class="portfolio-project">
+    <div class="portfolio-project-header">
+      <h3>Green Lake Townhouse</h3>
+      <p>Photography by Virginia Roberts</p>
+    </div>
+    <div class="portfolio-grid" data-project="0">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/0b2e16b9-0c30-431a-adb3-5a154d856d69/Virginia+Roberts+14.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,0)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/22816a5c-cfca-4400-8c9d-06de5931b031/Virginia+Roberts+1.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,1)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/aa77d405-b146-4c72-afaa-95cc302d1bd3/Virginia+Roberts+4.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,2)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/c226aec7-1317-4440-90f6-d52c805e50f3/Virginia+Roberts+6.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,3)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/8d2ffe84-896b-4448-a98c-cf0893945ff2/Virginia+Roberts+7.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,4)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/732f6079-86b2-4d4b-9c7d-1b957cdf9bc1/Virginia+Roberts+10.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,5)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/14d31818-c09f-4682-b87e-cc4e17974d8c/Virginia+Roberts+11.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,6)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/2d3d5c2e-d3e0-454a-bfd1-38bb2bea170d/Virginia+Roberts+12.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,7)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/6b1ceec7-38a8-4190-a1a6-fb74180cf36c/Virginia+Roberts+22.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,8)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/31574567-48a8-429b-8ad8-0cde3ad75bd0/Virginia+Roberts+25.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,9)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/589a8018-fd50-455d-a06c-0b332ce470eb/Virginia+Roberts+29.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,10)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/2ed2ce02-9403-4aac-ab2f-59c64dc908d4/Virginia+Roberts+30.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,11)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/fc584267-6995-41fc-bd91-f0667282cf73/Virginia+Roberts+31.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,12)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/542c4409-4606-416d-84d0-c6ac73b45144/Virginia+Roberts+33.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,13)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/15ba2454-5f65-4590-88d4-a96b12146d59/Virginia+Roberts+37.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,14)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/e34d7ccf-c7b6-47da-91fe-014f838dad5a/Virginia+Roberts+40.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,15)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/9b895b33-26b4-4d90-93ea-826a097a907f/Virginia+Roberts+44.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,16)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/705fa022-ae56-4730-9557-0e8d0baa26af/Virginia+Roberts+47.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,17)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/77d4bdcf-0bdf-45dd-ade5-cdbab5db52df/Virginia+Roberts+49.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,18)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/a97bd0ac-cdd2-4444-82b8-702dda8a57f7/Virginia+Roberts+63.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,19)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/cf08caae-09b5-4215-9f18-14970545ce07/Virginia+Roberts+67.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,20)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/fd51ba50-c8dd-4e70-8a69-42fe628ca883/Virginia+Roberts+19.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,21)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/2e52bc5d-cf86-47d8-8d8e-70f924b9916d/Virginia+Roberts+20.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,22)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/a13489ab-57fa-4afe-9cbb-56242a41783f/Virginia+Roberts+21.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,23)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/e56964d3-e81d-46a1-8500-31032415f486/Virginia+Roberts+73.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,24)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/e96c4ce7-d72e-497a-b7f7-83df891255f5/Virginia+Roberts+76.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,25)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/5bbaa075-c6d5-4cf2-b47d-7f317c795e44/Virginia+Roberts+77.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,26)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/8f997bae-44f1-4fc4-a1ef-72104ccd3a8a/Virginia+Roberts+85.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,27)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/f952b1f2-782d-4b00-8dd7-11893f5510c4/Virginia+Roberts+86.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,28)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/76dd562f-1ccf-4983-981d-ebaa9af78a36/Virginia+Roberts+87.jpg" alt="Green Lake Townhouse" loading="lazy" onclick="openLightbox(0,29)">
+    </div>
+  </div>
+
+  <!-- Laurelhurst Spanish Tudor -->
+  <div class="portfolio-project">
+    <div class="portfolio-project-header">
+      <h3>Laurelhurst Spanish Tudor</h3>
+      <p>In collaboration with Emily Wignall Design. Photography by Virginia Roberts.</p>
+    </div>
+    <div class="portfolio-grid" data-project="1">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/e75576a9-a02a-4a9b-b398-6ed380d1f496/Virginia%2BRoberts%2B17.jpg" alt="Laurelhurst Spanish Tudor" loading="lazy" onclick="openLightbox(1,0)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/a013ca69-a365-4530-8bc3-e39cae8f04ac/Virginia%2BRoberts%2B9.jpg" alt="Laurelhurst Spanish Tudor" loading="lazy" onclick="openLightbox(1,1)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/e8fdc77a-56ae-4b01-a7b8-bf90da7d9103/Virginia%2BRoberts%2B13.jpg" alt="Laurelhurst Spanish Tudor" loading="lazy" onclick="openLightbox(1,2)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/2b947a17-8282-49a3-801d-17423079c871/Virginia%2BRoberts%2B16.jpg" alt="Laurelhurst Spanish Tudor" loading="lazy" onclick="openLightbox(1,3)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/9c1c28e8-5158-4c8c-8939-384289a91e5c/Virginia%2BRoberts%2B23.jpg" alt="Laurelhurst Spanish Tudor" loading="lazy" onclick="openLightbox(1,4)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/23b6c109-c844-4d52-8e61-61e818d811de/Virginia%2BRoberts%2B29.jpg" alt="Laurelhurst Spanish Tudor" loading="lazy" onclick="openLightbox(1,5)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/2a095fe8-2cd2-4b49-a8de-b679214d651f/Virginia%2BRoberts%2B31.jpg" alt="Laurelhurst Spanish Tudor" loading="lazy" onclick="openLightbox(1,6)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/aafb7084-63cf-4348-af6c-2468d40f5f95/Virginia%2BRoberts%2B41.jpg" alt="Laurelhurst Spanish Tudor" loading="lazy" onclick="openLightbox(1,7)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/c8c2b6f4-655e-4122-9e65-54bb2abfdcab/Virginia%2BRoberts%2B3.jpg" alt="Laurelhurst Spanish Tudor" loading="lazy" onclick="openLightbox(1,8)">
+    </div>
+  </div>
+
+  <!-- Green Lake Traditional -->
+  <div class="portfolio-project">
+    <div class="portfolio-project-header">
+      <h3>Green Lake Traditional</h3>
+      <p>In collaboration with Emily Wignall Design. Photography by Virginia Roberts.</p>
+    </div>
+    <div class="portfolio-grid" data-project="2">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/b4364630-a117-4225-ae99-647b08a910a3/Virginia+Robeerts+11.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,0)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/ceeebae1-e4a7-43a3-9f0a-6cf552e083e0/Virginia+Robeerts+12.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,1)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/3f1d9d02-70f6-450a-be24-f211a31ea2f2/Virginia+Robeerts+14.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,2)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/b514ea08-6c7f-4b31-91da-607e9e7334b6/Virginia+Robeerts+16.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,3)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/c52f54d0-c20c-4007-aeda-00040769ea3d/Virginia+Robeerts+17.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,4)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/ac752a16-b5cf-4fd5-84f1-7b6830965d27/Virginia+Robeerts+18.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,5)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/8a4bda8c-e826-4534-9480-a8f1248ad518/Virginia+Robeerts+19.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,6)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/70486234-0093-482a-9395-b7f9e18741eb/Virginia+Robeerts+20.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,7)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/5a53303f-6e54-4079-864e-6d3987d0101b/Virginia+Robeerts+21.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,8)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/c62d15ce-e4c5-4aa7-8e33-211378f3f9a3/Virginia+Robeerts+22.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,9)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/130a952f-acf0-4ce9-ba25-c72ee62cec32/Virginia+Robeerts+23.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,10)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/46a90ff0-41aa-431f-9e42-a8dad502bd13/Virginia+Robeerts+25.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,11)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/b9feeb8a-7039-49d2-8737-ffcd319ad980/Virginia+Robeerts+26.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,12)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/125a0022-ee3d-4465-8c97-d435d6da7273/Virginia+Robeerts+27.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,13)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/3724a458-e0db-4215-82f7-cdd4db3a01f3/Virginia+Robeerts+28.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,14)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/64aeeead-1963-4707-8828-48501e39210e/Virginia+Robeerts+29.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,15)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/6a0f8ab0-a25c-4a50-8743-19149a936240/Virginia+Robeerts+32.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,16)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/d40a7d3c-72ba-4c96-b4e8-4bc55e87db43/Virginia+Robeerts+33.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,17)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/6bbf46eb-a499-4df9-b533-1d35d969b20f/Virginia+Robeerts+34.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,18)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/81db8108-72ca-4776-8200-292e28ece9d9/Virginia+Robeerts+36.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,19)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/9d56d11b-7d51-4787-9d9b-3b24486dbf9d/Virginia+Robeerts+1.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,20)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/d7ced2a8-1c8e-4983-812a-beec52ee5097/Virginia+Robeerts+2.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,21)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/766419f1-0de8-4ab7-a570-35c31eaaa4f9/Virginia+Robeerts+4.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,22)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/e834b009-e992-4dc0-9aec-dd5a7acaefa7/Virginia+Robeerts+5.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,23)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/ff901422-65d4-43bb-98da-fcf65732f966/Virginia+Robeerts+6.jpg" alt="Green Lake Traditional" loading="lazy" onclick="openLightbox(2,24)">
+    </div>
+  </div>
+
+  <!-- Madrona Traditional Modern -->
+  <div class="portfolio-project">
+    <div class="portfolio-project-header">
+      <h3>Madrona Traditional / Modern</h3>
+      <p>In collaboration with Emily Wignall Design. Photography by Virginia Roberts.</p>
+    </div>
+    <div class="portfolio-grid" data-project="3">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/d68e06b8-3966-419a-ac2a-f7a4dd68681b/Virginia+Robeerts+1.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,0)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/1749039893673-ZBNE11MFUHDNO89TLL7F/Virginia%2BRobeerts%2B6.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,1)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/fa28a65b-ad50-436e-9d1f-51843171572c/Virginia+Robeerts+9.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,2)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/de0d6976-b2e5-42a6-89ec-59abf21b7102/Virginia+Robeerts+11.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,3)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/d507b17b-d0cb-487d-9be0-bfce2f1b60b6/Virginia+Robeerts+114.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,4)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/17b75c02-4093-4220-8cdf-1b64cf8b1b57/Virginia+Robeerts+127.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,5)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/74aa0248-c6df-4f74-b244-d0c41323e36c/Virginia+Robeerts+115.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,6)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/45d13f42-565f-4e4c-91a2-3a501a533224/Virginia+Robeerts+122.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,7)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/88567eb4-559e-4f78-9be6-56d44046773e/Virginia+Robeerts+49.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,8)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/aee82da7-0d28-4f2d-9d3e-ee35639d09f2/Virginia+Robeerts+56.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,9)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/47668af8-cbc5-4262-9f4a-a6e4baee3cf5/Virginia+Robeerts+59.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,10)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/c3d9274f-edcb-488d-8c21-1f7ca64585de/Virginia+Robeerts+65.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,11)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/e0072f1a-af61-43ad-8b3e-5cceb5fb46a5/Virginia+Robeerts+67.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,12)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/148bbc72-a755-412e-88da-9eee770f049f/Virginia+Robeerts+68.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,13)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/594c041f-6667-4eb4-8ef1-c5f781d02931/Virginia+Robeerts+77.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,14)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/14f42423-1746-4e5b-831a-b3e6ef117337/Virginia+Robeerts+81.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,15)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/08f1aaed-bcee-4f4f-babe-bd1fa97cffcb/Virginia+Robeerts+89.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,16)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/c7b2b5bd-2a8f-434f-92e7-13239fe9ac72/Virginia+Robeerts+91.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,17)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/3c5964b4-9610-4aff-8748-aa1a1a38c5cb/Virginia+Robeerts+93.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,18)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/320a6777-9f4e-4307-8c4e-1a07f2302e77/Virginia+Robeerts+95.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,19)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/e87d7d42-0601-4eb8-8568-d5e90768afb1/Virginia+Robeerts+99.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,20)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/54f99e5d-cb4d-4e2a-8d7b-14b158305bf6/Virginia+Robeerts+101.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,21)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/e3e905b3-7a63-42b3-9386-5bc0904449d0/Virginia+Robeerts+102.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,22)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/fc41c76b-c497-4d52-a00a-0be0410b936b/Virginia+Robeerts+105.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,23)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/f6c5448c-fa83-4535-ac2d-0256ed76074b/Virginia+Robeerts+109.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,24)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/d6fbc7cc-b345-43b4-9aa7-9d13638f2c9b/Virginia+Robeerts+110.jpg" alt="Madrona Traditional Modern" loading="lazy" onclick="openLightbox(3,25)">
+    </div>
+  </div>
+
+  <!-- Madrona Tudor Bold & Feminine -->
+  <div class="portfolio-project">
+    <div class="portfolio-project-header">
+      <h3>Madrona Tudor – Bold & Feminine</h3>
+      <p>In collaboration with Emily Wignall Design. Photography by Virginia Roberts.</p>
+    </div>
+    <div class="portfolio-grid" data-project="4">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/4fc12086-4da7-4da6-86b7-0a98dc3119fb/Virginia%2BRoberts%2B61.jpg" alt="Madrona Tudor Bold and Feminine" loading="lazy" onclick="openLightbox(4,0)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/9e74d328-c5f8-40ce-bd0f-98c064d122c0/Virginia%2BRoberts%2B62.jpg" alt="Madrona Tudor Bold and Feminine" loading="lazy" onclick="openLightbox(4,1)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/2013c47d-3886-4f21-a911-8b7bd28f9e46/Virginia%2BRoberts%2B75.jpg" alt="Madrona Tudor Bold and Feminine" loading="lazy" onclick="openLightbox(4,2)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/93797b01-8ed6-4146-a474-0fd386b291dd/Virginia%2BRoberts%2B44.jpg" alt="Madrona Tudor Bold and Feminine" loading="lazy" onclick="openLightbox(4,3)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/2371356e-3cb8-48ec-bfcf-0d4bfd985b5f/Virginia%2BRoberts%2B45.jpg" alt="Madrona Tudor Bold and Feminine" loading="lazy" onclick="openLightbox(4,4)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/775196af-48bd-4c5e-9d43-80c6d75e1e39/Virginia%2BRoberts%2B47.jpg" alt="Madrona Tudor Bold and Feminine" loading="lazy" onclick="openLightbox(4,5)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/2f0d8e99-e529-491a-a343-b5f34e97d9ce/Virginia%2BRoberts%2B78.jpg" alt="Madrona Tudor Bold and Feminine" loading="lazy" onclick="openLightbox(4,6)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/c49a5c3a-5702-43a8-a79f-fc93be58f65e/Virginia%2BRoberts%2B1.jpg" alt="Madrona Tudor Bold and Feminine" loading="lazy" onclick="openLightbox(4,7)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/7fc4246f-ffed-470d-b529-64d54533be7c/Virginia%2BRoberts%2B16.jpg" alt="Madrona Tudor Bold and Feminine" loading="lazy" onclick="openLightbox(4,8)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/07e636d6-fe08-44b2-bd0d-6a3d9db5a66e/Virginia%2BRoberts%2B25.jpg" alt="Madrona Tudor Bold and Feminine" loading="lazy" onclick="openLightbox(4,9)">
+    </div>
+  </div>
+
+  <!-- Magnolia Mid-Century -->
+  <div class="portfolio-project">
+    <div class="portfolio-project-header">
+      <h3>Magnolia Mid-Century</h3>
+      <p>In collaboration with Emily Wignall Design. Photography by Virginia Roberts.</p>
+    </div>
+    <div class="portfolio-grid" data-project="5">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/67d6adc1-9dcf-4abd-9a0d-a9bb050924ca/Virginia%2BRoberts%2B4.jpg" alt="Magnolia Mid-Century" loading="lazy" onclick="openLightbox(5,0)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/067da7e3-4ac3-4ae4-b305-9971a0e76385/Virginia%2BRoberts%2B8.jpg" alt="Magnolia Mid-Century" loading="lazy" onclick="openLightbox(5,1)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/0143b4c4-db38-4ebe-8c05-9fe9cb04c446/Virginia%2BRoberts%2B12.jpg" alt="Magnolia Mid-Century" loading="lazy" onclick="openLightbox(5,2)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/247ffe06-8a42-4118-8bb5-01b25acf4647/Virginia%2BRoberts%2B17.jpg" alt="Magnolia Mid-Century" loading="lazy" onclick="openLightbox(5,3)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/a71c4d79-20ae-49f6-bb57-bba46a326c35/Virginia%2BRoberts%2B19.jpg" alt="Magnolia Mid-Century" loading="lazy" onclick="openLightbox(5,4)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/0cd521c4-d21a-42b1-b5f2-4f6782338f92/Virginia%2BRoberts%2B2.jpg" alt="Magnolia Mid-Century" loading="lazy" onclick="openLightbox(5,5)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/e732aaaf-6294-4a1b-9ca4-3e5a963a5860/Virginia%2BRoberts%2B21.jpg" alt="Magnolia Mid-Century" loading="lazy" onclick="openLightbox(5,6)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/afb1e43c-8e10-400d-9676-8d5f9bae71a3/Virginia%2BRoberts%2B23.jpg" alt="Magnolia Mid-Century" loading="lazy" onclick="openLightbox(5,7)">
+      <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/9b443199-6871-4649-8070-e0b3752ba2b9/Virginia%2BRoberts%2B24.jpg" alt="Magnolia Mid-Century" loading="lazy" onclick="openLightbox(5,8)">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-prev" onclick="event.stopPropagation();navigateLightbox(-1)">‹</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-next" onclick="event.stopPropagation();navigateLightbox(1)">›</button>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/681e7570c760ca630c3a895a/98cc7e6c-1bee-49a0-88e8-c7d933248ba0/headshot2.jpg" alt="Martha Ware, Seattle interior designer" onerror="this.style.background='#d8d4cc';this.removeAttribute('src');">
+  </div>
+  <div class="about-text">
+    <p class="section-eyebrow">About</p>
+    <h2 class="section-heading">Hi! I'm <em>Martha.</em></h2>
+    <div class="divider"></div>
+    <p>I specialize in home remodels and refreshes in the Seattle Metro area, with an equal love for form and function. Your home should look beautiful, feel welcoming, and work hard for the people (and pets!) who live in it. My role is to uncover your unique point of view and aesthetic, then translate that into spaces that feel authentic, practical, and truly livable.</p>
+    <p>A little about me … I've lived all over the world and draw inspiration from both natural and built environments. The Pacific Northwest offers the best of both, so I feel lucky to find ideas around every corner. When I'm not designing, you'll find me hiking, walking, reading, cooking, eating in and eating out, and laughing as much as possible with family and friends.</p>
+    <p>I'd love to meet you and dig into your project together.</p>
+    <a href="#contact" class="btn btn-dark" style="align-self:flex-start;margin-top:1rem;">Let's Work Together</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-eyebrow">Work With Me</p>
+  <h2 class="section-heading">Ready to <em>Get Started?</em></h2>
+  <p>Book an initial consultation through the website or reach out directly. I'd love to meet you and dig into your project together.</p>
+  <a href="mailto:martha@marthawaredesign.com" class="btn btn-outline" style="color:var(--warm-white);border-color:rgba(253,252,251,0.4);">Book a Free Consultation</a>
+  <div class="contact-details">
+    <a href="mailto:martha@marthawaredesign.com">martha@marthawaredesign.com</a>
+    <span class="contact-dot">·</span>
+    <a href="tel:2064033636">206-403-3636</a>
+    <span class="contact-dot">·</span>
+    <a href="https://www.instagram.com/marthawaredesign/" target="_blank" rel="noopener">@marthawaredesign</a>
+  </div>
+</section>
+
+<footer>
+  <a href="#home" class="footer-logo">Martha Ware Design</a>
+  <p class="footer-copy">© 2025 Martha Ware Design · Seattle, WA</p>
+</footer>
+
+<script>
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Lightbox
+  let currentProject = 0;
+  let currentIndex = 0;
+  let projectImages = [];
+
+  function buildProjectImages() {
+    projectImages = [];
+    document.querySelectorAll('.portfolio-grid').forEach(grid => {
+      const imgs = Array.from(grid.querySelectorAll('img')).map(img => img.src);
+      projectImages.push(imgs);
+    });
+  }
+
+  function openLightbox(project, index) {
+    buildProjectImages();
+    currentProject = project;
+    currentIndex = index;
+    document.getElementById('lightbox-img').src = projectImages[project][index];
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(e) {
+    if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function navigateLightbox(dir) {
+    const imgs = projectImages[currentProject];
+    currentIndex = (currentIndex + dir + imgs.length) % imgs.length;
+    document.getElementById('lightbox-img').src = imgs[currentIndex];
+  }
+
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'Escape') closeLightbox({target: document.getElementById('lightbox')});
+  });
+</script>
+</body>
+</html>
